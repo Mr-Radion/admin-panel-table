@@ -1,0 +1,21 @@
+{
+  "name": "file-upload-in-table",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mr-Radion/file-upload-in-table.git",
+  "scripts": {
+    "start": ""
+  },
+  "author": "Mr.Radion <mr.rodion_oa@mail.ru>",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "less-loader": "^10.0.0",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
