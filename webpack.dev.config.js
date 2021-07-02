@@ -5,7 +5,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin'); // working with html i
 module.exports = {
   mode: 'development',
   entry: ['@babel/polyfill', './src/index.jsx'], // @babel/polyfill - for jsx
-  // entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
@@ -14,9 +13,12 @@ module.exports = {
     port: 3000,
     contentBase: './dist',
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'], // so that when importing not to write js, json or jsx at the end, and file processing priority
+  },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       filename: './index.html',
       // chunks: '',
     }),
@@ -29,7 +31,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'less-loader'], // right to left compilation order
       },
       {
-        test: /\.(jpg|jpeg|png|svg)$/i,
+        test: /\.(jpg|jpeg|png|svg|gif)$/i,
         use: ['file-loader'],
       },
       {

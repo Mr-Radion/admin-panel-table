@@ -1,0 +1,91 @@
+{
+  "env": {
+      "es6": true,
+      "browser": true,
+      "es2021": true,
+      "jest": true,
+      "node": true
+  },
+  "extends": [
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "airbnb-base", // yarn module "eslint-config-airbnb-base"
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended", // yarn module "eslint-plugin-jsx-a11y"
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+],
+"root": true,
+"parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    // Allows for the parsing of modern ECMAScript features
+    "ecmaVersion": 2020,
+    // Allows for the use of imports
+    "sourceType": "module"
+},
+"plugins": [
+  "react", // yarn module "eslint-plugin-react"
+  "react-hooks", // yarn module "eslint-plugin-react-hooks"
+  // ESLint code formatting plugin
+  "prettier", // yarn module "eslint-plugin-prettier"
+  "jest",
+  "import" // yarn module "eslint-plugin-import"
+],
+"rules": {
+  "react/require-default-props": "off",
+  "no-plusplus": "off",
+  "func-names": "off",
+  "react/display-name": "off",
+  "linebreak-style": "off",
+  "unicorn/prevent-abbreviations": "off",
+  "no-debugger": "off",
+  "no-console": 0,
+  "function-paren-newline": "off",
+  "no-confusing-arrow": "off",
+  "react-hooks/rules-of-hooks": "off",
+  "global-require": "off",
+  "no-shadow": "off",
+  "implicit-arrow-linebreak": "off",
+  "import/extensions": "off",
+  "jsx-a11y/anchor-is-valid": "off",
+  "object-curly-newline": "off",
+  "operator-linebreak": "off",
+  "react/jsx-props-no-spreading": "off",
+  "react/prop-types": "off",
+  "react-hooks/exhaustive-deps": "off",
+  "import/prefer-default-export": "off",
+  "prettier/prettier": ["error", {
+    "endOfLine":"auto"
+  }],
+  "import/no-extraneous-dependencies": [
+    "error",
+    {
+      "devDependencies": ["test/**"],
+      "optionalDependencies": false,
+      "peerDependencies": false
+    }
+  ],
+  "quotes": [
+    2,
+    "single",
+    {
+        "avoidEscape": true
+    }
+  ],
+  "react/react-in-jsx-scope": "off",
+  "react/jsx-filename-extension": [
+    1,
+    {
+      "extensions": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx"
+      ]
+    }
+  ]
+ }
+}

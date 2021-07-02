@@ -4,14 +4,20 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production', // will compress
-  entry: './src/index.jsx',
+  entry: ['@babel/polyfill', './src/index.jsx'],
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'build'),
     filename: '[name].[hash].js',
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.jsx'],
+  },
+  optimization: { // https://webpack.js.org/configuration/optimization/
+    minimize: true,
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html',
+      template: './public/index.html',
       filename: './index.html',
       // chunks: '',
     }),
@@ -21,11 +27,36 @@ module.exports = {
     rules: [
       {
         test: /\.(css|less)$/i,
-        use: ['style-loader', 'css-loader', 'less-loader'], // right to left compilation order
+        use: ['style-loader', 'css-loader', 'less-loader'],
       },
       {
-        test: /\.(jpg|jpeg|png|svg)$/i,
+        test: /\.(jpg|jpeg|png|svg|gif)$/i,
         use: ['file-loader'],
+      },
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+            ],
+          },
+        },
+      },
+      {
+        test: /\.m?jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react',
+            ],
+          },
+        },
       },
     ],
   },
