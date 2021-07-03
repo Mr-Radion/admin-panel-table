@@ -41,6 +41,14 @@ module.exports = {
         use: ['file-loader'],
       },
       {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "remark-loader",
+          },
+        ],
+      },
+      {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
