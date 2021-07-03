@@ -4,8 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/Mr-Radion/file-upload-in-table.git",
   "scripts": {
-    "dev": "webpack serve --config webpack.dev.config.js --open",
-    "build": "webpack --config webpack.production.config.js"
+    "dev": "webpack serve --config config/webpack.dev.config.js --open",
+    "dev2": "webpack --config config/webpack.dev.config.js",
+    "build": "webpack --config config/webpack.production.config.js"
   },
   "author": "Mr.Radion <mr.rodion_oa@mail.ru>",
   "license": "MIT",

@@ -4,7 +4,9 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production', // will compress
-  entry: ['@babel/polyfill', './src/index.jsx'],
+  entry: {
+    app: ['@babel/polyfill', './src/index.jsx'],
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[hash].js',
@@ -12,7 +14,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
-  optimization: { // https://webpack.js.org/configuration/optimization/
+  optimization: {
+    // https://webpack.js.org/configuration/optimization/
     minimize: true,
   },
   plugins: [
@@ -34,14 +37,16 @@ module.exports = {
         use: ['file-loader'],
       },
       {
+        test: /\.(ttf|woff|woff2|eot)$/,
+        use: ['file-loader'],
+      },
+      {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-            ],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -51,13 +56,25 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
+      // {
+      //   test: /\.(csv|tsv)$/i,
+      //   use: ['csv-loader'],
+      // },
+      // {
+      //   test: /\.xml$/i,
+      //   use: ['xml-loader'],
+      // },
+      // {
+      //   test: /\.yaml$/i,
+      //   type: 'json',
+      //   parser: {
+      //     parse: yaml.parse,
+      //   },
+      // },
     ],
   },
 };

@@ -1,6 +1,4 @@
 node_modules
 .git
-webpack.production.config.js
-webpack.dev.config.js
 build
 dist
