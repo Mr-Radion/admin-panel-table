@@ -1,11 +1,25 @@
 import React from 'react';
-import './app.less'
+import { Button } from './stories/button';
+import { Primary, Small } from './stories/Button.stories';
+import { TableAdd } from './features/workers';
+import './app.less';
 
 const App = () => {
   return (
-  <div className="">
-    Таблица
-  </div>
+    <div>
+      {/* <div>
+        <Small label="Пер"></Small>
+        <Primary label="Пер" size="medium" primary>
+          Первая
+        </Primary>
+      </div>
+      <div>
+        <Button label="Вт" size="small" primary>
+          Вторая
+        </Button>
+      </div> */}
+      <TableAdd />
+    </div>
   );
 };
 
