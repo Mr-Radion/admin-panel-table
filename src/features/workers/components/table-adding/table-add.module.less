@@ -1,13 +1,169 @@
-.table {
-  margin: auto;
-  // position: relative;
-  // width: fit-content;
-  width: 1024px;
-  top: 55px;
-  border: 1px solid #dee2e6;
-  // width: 100%;
-  color: #212529;
-  border-collapse: collapse;
-  box-shadow: var(--raised-prim-shadow-active) !important;
-  box-shadow: var(--raised-shadow-active, var(--raised-prim-shadow-active)) !important;
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+  .wrapper {
+    box-shadow: 0px 2px 4px 2px #d1e2ff;
+    // bottom 2 properties are important for border or border-spacing: 0; in table
+    border-top: solid transparent;
+    border-width: 0.2rem 0 0;
+    border-radius: 4px;
+    overflow-x: auto; // added responsiveness to the table
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    width: 100%;
+    .table {
+      border-collapse: collapse;
+      // border-left: 1px solid #b5cdfa;
+      // border-right: 1px solid #b5cdfa;
+      // border-top: 1px solid #b5cdfa;
+      width: 100%;
+      max-width: 100%;
+      background-color: transparent;
+      thead {
+        th {
+          border-top: none;
+          &:first-child {
+            position: fixed;
+            background-color: white;
+          }
+        }
+      }
+      tr {
+        height: 100%;
+      }
+      tbody {
+        > tr {
+          &:nth-of-type(odd) {
+            background-color: rgba(246, 246, 250, 0.6);
+          }
+          &:hover {
+            background-color: #f6f6fa !important;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms,
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms,
+              border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms;
+            > th {
+              &:first-child {
+                > div {
+                  background-color: transparent !important;
+                }
+              }
+            }
+          }
+          > th {
+            &:first-child {
+              position: relative;
+              padding-left: 1.5rem;
+              padding-right: 1.5rem;
+              > div {
+                position: fixed;
+                background-color: white;
+                z-index: 2;
+                height: 48px;
+                margin-top: -24px;
+                width: 48px;
+                margin-left: -24px;
+                text-align: center;
+                padding-top: 12px;
+                &:only-of-type {
+                  background-color: #fafafc;
+                  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms,
+                    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms,
+                    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0.06ms;
+                }
+              }
+            }
+          }
+        }
+      }
+      td,
+      th {
+        padding: 0.75rem;
+        vertical-align: middle;
+        border-top: 1px solid #cedaee;
+      }
+    }
+    .table-block__bottom {
+      border-top: 1px solid #cedaee;
+      padding: 6px;
+      min-height: 40px;
+      flex-wrap: nowrap;
+      display: flex;
+      justify-content: flex-end;
+      .pagination-str {
+        text-align: right;
+        position: fixed;
+        .pag-arrow__btn {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+          border-radius: 50%;
+          padding: 2px;
+          > span {
+            > svg {
+              width: 28px;
+              height: 28px;
+              padding-top: 0 !important;
+              padding-bottom: 0;
+              fill: #2979ff;
+            }
+          }
+          &:hover {
+            background-color: #ebf2ff;
+          }
+        }
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: #f9f9fd;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: #2979ff;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-boxshadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      background-color: #f9f9fd;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
