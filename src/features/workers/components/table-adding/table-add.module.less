@@ -6,8 +6,10 @@
   margin-top: 15px;
   display: block;
   width: 100%;
+  box-shadow: 0px 2px 4px 2px #d1e2ff;
   .wrapper {
-    box-shadow: 0px 2px 4px 2px #d1e2ff;
+    overflow-y: auto !important;
+    max-height: 500px;
     // bottom 2 properties are important for border or border-spacing: 0; in table
     border-top: solid transparent;
     border-width: 0.2rem 0 0;
@@ -16,6 +18,7 @@
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     width: 100%;
+    bottom: 0;
     .table {
       border-collapse: collapse;
       // border-left: 1px solid #b5cdfa;
@@ -28,7 +31,7 @@
         th {
           border-top: none;
           &:first-child {
-            position: fixed;
+            // position: fixed;
             background-color: white;
           }
         }
@@ -36,6 +39,7 @@
       tr {
         height: 100%;
       }
+      // tbody:hover > th:first-child > div {} // альтернатива без sass
       tbody {
         > tr {
           &:nth-of-type(odd) {
@@ -60,7 +64,7 @@
               padding-left: 1.5rem;
               padding-right: 1.5rem;
               > div {
-                position: fixed;
+                // position: fixed;
                 background-color: white;
                 z-index: 2;
                 height: 48px;
@@ -87,38 +91,6 @@
         border-top: 1px solid #cedaee;
       }
     }
-    .table-block__bottom {
-      border-top: 1px solid #cedaee;
-      padding: 6px;
-      min-height: 40px;
-      flex-wrap: nowrap;
-      display: flex;
-      justify-content: flex-end;
-      .pagination-str {
-        text-align: right;
-        position: fixed;
-        .pag-arrow__btn {
-          background-color: transparent;
-          border: none;
-          cursor: pointer;
-          transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-          border-radius: 50%;
-          padding: 2px;
-          > span {
-            > svg {
-              width: 28px;
-              height: 28px;
-              padding-top: 0 !important;
-              padding-bottom: 0;
-              fill: #2979ff;
-            }
-          }
-          &:hover {
-            background-color: #ebf2ff;
-          }
-        }
-      }
-    }
     &::-webkit-scrollbar {
       width: 10px;
       background-color: #f9f9fd;
@@ -131,6 +103,38 @@
       -webkit-boxshadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
       background-color: #f9f9fd;
+    }
+  }
+  .table-block__bottom {
+    border-top: 1px solid #cedaee;
+    padding: 6px;
+    min-height: 40px;
+    flex-wrap: nowrap;
+    display: flex;
+    justify-content: flex-end;
+    .pagination-str {
+      text-align: right;
+      // position: fixed;
+      .pag-arrow__btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        border-radius: 50%;
+        padding: 2px;
+        > span {
+          > svg {
+            width: 28px;
+            height: 28px;
+            padding-top: 0 !important;
+            padding-bottom: 0;
+            fill: #2979ff;
+          }
+        }
+        &:hover {
+          background-color: #ebf2ff;
+        }
+      }
     }
   }
 }
